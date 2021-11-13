@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Calligraffitti&family=Cedarville+Cursive&family=Hachi+Maru+Pop&family=Reenie+Beanie&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project_1.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+</head>
+<body>
+
+    <div class="title" >
+        Niki Matthews
+    </div> 
+    <!-- LINKS -->
+     <div class="links-grid">
+        <div class="nav-link">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="nav-link">
+            <a href="about-me.html">About Me</a>
+        </div>
+        <div class="nav-link">
+            <a href="quote.html">Quotes</a>
+        </div> 
+        <div class="nav-link">
+            <a href="projects.html">Projects</a>
+        </div>
+        <div class="nav-link">
+            <a href="connect.html">Connect</a>
+        </div>
+
+    </div>
+<div class="card">
+<div class="quote">
+<h3>Quote of the day: </h3>
+</div>
+
+<Div id="myData"></Div>
+<script>
+    
+    let url = 'http://127.0.0.1/new';
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+            console.log(data)
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+    function appendData(data) {
+        var mainContainer = document.getElementById("myData");
+        var div = document.createElement("div");
+            div.innerHTML =  data.Quote + '<br> <br> - ' + data.Author + '<br><img src=data:image/png;base64,'+ data.PNG +'>';
+            mainContainer.appendChild(div);
+    }
+</script>
+</div>
+
+
+<div class="contact-container">
+   <!-- <div class="element-to-stick-to-bottom"> -->
+    <div class="link-wrapper">
+
+        <div class="contact-link">
+            <a href="mailto: nm.niki06@gmail.com" target="_blank">
+                <i class="fas fa-envelope-square" style="font-size: 2em"></i>
+            </a>
+        </div>
+
+        <div class="contact-link">
+            <a href="https://www.linkedin.com/in/niki-matthews-498b4889/" target="_blank">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+        </div>
+        <div class="contact-link">
+            <a href="https://github.com/nikimatthews" target="_blank">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+        </div>
+  
+    </div>
+</div>
+</body>
+</html>
